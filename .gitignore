@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Data (large CSVs are not tracked; see data/README.md)
+data/*.csv
+data/**/*.csv
+data/**/*.zip
+
+# Outputs
+outputs/
+*.log
+
+# LaTeX build artifacts (if you keep the paper source here)
+*.aux
+*.bbl
+*.blg
+*.out
+*.tmp
