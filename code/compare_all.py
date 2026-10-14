@@ -8,7 +8,7 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score, accuracy_score
 from imblearn.over_sampling import SMOTE
-from config import EDGE_ML, TON_NET, CIC, UNSW
+from config import EDGE_ML, TON_NET, CIC, UNSW, SEED
 from baseline import prep, ID_COLS
 from nn_hier import signed_log1p, fixed_partition
 from search_partition import sort_classes
@@ -108,8 +108,11 @@ def run_ds(name, path, label_col, dedup):
         pm = {c: k for k, c in enumerate(cls)}
         out = focal_mlp(Xs, ytr.map(pm).values, Xts, C, s)
         res["flat+focal"].append(metrics(yte, np.array([cls[v] for v in out], dtype=object), cls))
-        res["hier"].append(metrics(yte, cascade(Xtr, ypos, cls_arr, cls, Xte, s, False), cls))
-        res["hier+weight"].append(metrics(yte, cascade(Xtr, ypos, cls_arr, cls, Xte, s, True), cls))
+        # The hierarchical level models use the fixed SEED (as in final_table.py)
+        # so that the hierarchy is identical across both result tables; only the
+        # train/test split varies with the seed.
+        res["hier"].append(metrics(yte, cascade(Xtr, ypos, cls_arr, cls, Xte, SEED, False), cls))
+        res["hier+weight"].append(metrics(yte, cascade(Xtr, ypos, cls_arr, cls, Xte, SEED, True), cls))
         print("  seed {} done".format(s))
 
     print("\n{:<14} {:>16} {:>17} {:>16}".format("method", "acc", "macro-F1", "worst-class-F1"))
