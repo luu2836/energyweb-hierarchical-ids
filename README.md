@@ -98,6 +98,14 @@ python decision_figure.py
 
 # 11) framework schematic (Figure 1)
 python framework_figure.py
+
+# 12) learned routing-threshold ablation (Table 11)
+python routing_threshold.py edge
+python routing_threshold.py unsw
+
+# 13) FT-Transformer deep IDS baseline (Table 5)
+python ft_transformer.py unsw
+python ft_transformer.py cic
 ```
 
 Figures are written to the `outputs/` directory.
