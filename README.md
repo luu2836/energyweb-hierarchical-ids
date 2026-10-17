@@ -106,6 +106,17 @@ python routing_threshold.py unsw
 # 13) FT-Transformer deep IDS baseline (Table 5)
 python ft_transformer.py unsw
 python ft_transformer.py cic
+
+# 14) imbalance-ratio sweep + figure (Section 7.x)
+python ir_sweep.py
+python ir_figure.py
+
+# 15) drift mitigation (incremental retrain + CORAL)
+python drift_adapt.py
+
+# 16) fixed-IR tail-support sweep + figure (Section 7.x)
+python tail_sweep.py
+python tail_figure.py
 ```
 
 Figures are written to the `outputs/` directory.
