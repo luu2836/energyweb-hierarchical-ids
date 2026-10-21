@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 
 fig, ax = plt.subplots(figsize=(7.4, 3.4), dpi=200)
-ax.set_xlim(0, 100)
+ax.set_xlim(0, 106)
 ax.set_ylim(0, 60)
 ax.axis("off")
 
