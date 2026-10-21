@@ -32,9 +32,13 @@ ax.set_xlabel("Imbalance ratio (IR, log scale)")
 ax.set_ylabel(r"$\Delta$ macro-F1 over flat-GBDT")
 ax.set_title("Structural decomposition vs loss re-weighting by dataset")
 
-for xi, ti, ni, hi, wi in zip(IR, tailmin, name, gain(hier), gain(weight)):
-    ax.annotate("{}  (IR={}, min={})".format(ni, xi, ti), (xi, hi),
-                textcoords="offset points", xytext=(6, 6), fontsize=7.5, color="#1f5fbf")
+ax.set_xlim(15, 20000)
+ax.set_ylim(-0.05, 0.205)
+offs = [(6, -28), (8, 10), (8, 10), (10, 4)]
+for k, (xi, ti, ni, hi) in enumerate(zip(IR, tailmin, name, gain(hier))):
+    ax.annotate("{}\nIR={}, min={}".format(ni, xi, ti), (xi, hi),
+                textcoords="offset points", xytext=offs[k], fontsize=7,
+                color="#1f5fbf", ha="left")
 ax.legend(fontsize=8, loc="upper left")
 ax.grid(True, which="both", ls=":", alpha=0.4)
 fig.tight_layout()

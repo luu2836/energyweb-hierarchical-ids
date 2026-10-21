@@ -26,7 +26,7 @@ ax.errorbar(IR, hier, yerr=hier_s, marker="^", color="#1f5fbf", lw=2, capsize=3,
 ax.set_xscale("log")
 ax.set_xlabel("Imbalance ratio (IR, log scale; tail support fixed at 11 samples)")
 ax.set_ylabel("Macro-F1")
-ax.set_title("Structural decomposition vs loss re-weighting across the IR spectrum")
+ax.set_title("Hierarchy vs re-weighting across the IR spectrum")
 ax.set_ylim(0.70, 0.95)
 ax.legend(fontsize=8, loc="lower left")
 ax.grid(True, which="both", ls=":", alpha=0.4)

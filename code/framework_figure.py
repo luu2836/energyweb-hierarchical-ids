@@ -48,12 +48,12 @@ levels = ["Level 1\nhead\n+ Other", "Level 2", ". . .", "Level $K$\ntail"]
 w, gap, x0 = 16, 2, 3
 for i, t in enumerate(levels):
     xi = x0 + i * (w + gap)
-    box(xi, 16, w, 10, t, fc="white", fs=7.6,
+    box(xi, 17, w, 10, t, fc="white", fs=7.6,
         weight="bold" if i in (0, 3) else "normal")
     if i < len(levels) - 1:
-        arrow(xi + w, 21, xi + w + gap, 21, color=ORANGE, lw=1.1)
-ax.text(41, 14.4, "unresolved samples routed as ``Other'' to the next level",
-        fontsize=6.4, color=ORANGE, ha="center")
+        arrow(xi + w, 22, xi + w + gap, 22, color=ORANGE, lw=1.1)
+ax.text(41, 14.7, 'unresolved samples are routed down as "Other"',
+        fontsize=6.0, color=ORANGE, ha="center")
 
 arrow(60, 38, 60, 34)
 
@@ -64,10 +64,9 @@ arrow(16, 13, 16, 11)
 arrow(55, 13, 55, 11)
 
 # --- edge deployment ---
-box(78, 17, 21, 13, "Edge deployment:\nunder 0.002 ms/sample,\n$<$0.3M parameters\nsubstation gateway",
+box(79, 17, 21, 13, "Edge deployment:\nunder 0.002 ms/sample,\n$<$0.3M parameters\nsubstation gateway",
     fc="#fff2e6", ec=ORANGE, fs=7, tc="black")
-arrow(73, 21.5, 78, 21.5, color=ORANGE, lw=1.2, ls="--")
-ax.text(75.5, 25.5, "deploy", fontsize=6.4, color=ORANGE, ha="center")
+arrow(73, 22, 79, 22, color=ORANGE, lw=1.2, ls="--")
 
 fig.tight_layout(pad=0.3)
 out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "figures")
